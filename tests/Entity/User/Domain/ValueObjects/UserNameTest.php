@@ -1,11 +1,11 @@
 <?php
 
-namespace Jorgeaguero\Docfav\Tests;
+namespace Jorgeaguero\Docfav\Tests\Entity\User\Domain\ValueObjects;
 
 use Jorgeaguero\Docfav\Entity\User\Domain\ValueObjects\UserName;
 use PHPUnit\Framework\TestCase;
 
-class UserNameValueObjectTest extends TestCase
+class UserNameTest extends TestCase
 {
     public function testValidUserName(): void
     {

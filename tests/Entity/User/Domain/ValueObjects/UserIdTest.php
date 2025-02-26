@@ -1,11 +1,11 @@
 <?php
 
-namespace Jorgeaguero\Docfav\Tests;
+namespace Jorgeaguero\Docfav\Tests\Entity\User\Domain\ValueObjects;
 
 use Jorgeaguero\Docfav\Entity\User\Domain\ValueObjects\UserId;
 use PHPUnit\Framework\TestCase;
 
-class UserIdValueObjectTest extends TestCase
+class UserIdTest extends TestCase
 {
     public function testValidUserId(): void
     {

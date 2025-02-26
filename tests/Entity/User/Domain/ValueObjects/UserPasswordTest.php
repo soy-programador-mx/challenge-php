@@ -1,12 +1,11 @@
 <?php
 
-namespace Jorgeaguero\Docfav\Tests;
+namespace Jorgeaguero\Docfav\Tests\Entity\User\Domain\ValueObjects;
 
-use Jorgeaguero\Docfav\Entity\User\Domain\Exceptions\WeakPasswordException;
 use Jorgeaguero\Docfav\Entity\User\Domain\ValueObjects\UserPassword;
 use PHPUnit\Framework\TestCase;
 
-class UserPasswordValueObjectTest extends TestCase
+class UserPasswordTest extends TestCase
 {
     public function testValidUserPassword(): void
     {

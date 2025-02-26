@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Jorgeaguero\Docfav\Tests;
+namespace Jorgeaguero\Docfav\Tests\Entity\User\Domain;
 
 use PHPUnit\Framework\TestCase;
 use Jorgeaguero\Docfav\Entity\User\Domain\User;
