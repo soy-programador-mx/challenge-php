@@ -12,23 +12,35 @@ class DoctrineEntityManager
 {
     private static ?EntityManager $entityManager = null;
 
-    public static function getEntityManager(): EntityManager
-    {
+    /**
+     * Get the EntityManager instance
+     * @param string $host Database host
+     * @param string $dbname Database name
+     * @param string $user Database user
+     * @param string $password Database password
+     * @return EntityManager
+     */
+    public static function getEntityManager(
+        string $host,
+        string $dbname,
+        string $user,
+        string $password
+    ): EntityManager {
         if (self::$entityManager === null) {
 
-            // Configuración de Doctrine
-            $config = ORMSetup::createAttributeMetadataConfiguration(
-                paths: [__DIR__ . '/../src/Entity'],
+            // Doctrine configuration
+            $config = ORMSetup::createXMLMetadataConfiguration(
+                paths: [__DIR__ . '/Doctrine'],
                 isDevMode: true
             );
 
-            // Configuración de la conexión
+            // Connection configuration
             $connection = DriverManager::getConnection([
                 'driver'   => 'pdo_mysql',
-                'host'     => 'localhost',
-                'dbname'   => 'docfav',
-                'user'     => 'root',
-                'password' => '',
+                'host'     => $host,
+                'dbname'   => $dbname,
+                'user'     => $user,
+                'password' => $password,
             ], $config);
 
             self::$entityManager = new EntityManager($connection, $config);
