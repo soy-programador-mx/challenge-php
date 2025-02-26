@@ -23,10 +23,10 @@ class DoctrineUserRepositoryTest extends TestCase
     protected function setUp(): void
     {
         $this->entityManager = DoctrineEntityManager::getEntityManager(
-            '192.168.0.66',
-            'exampledb',
-            'exampleuser',
-            'examplepass'
+            getenv('MYSQL_HOST'),
+            getenv('MYSQL_DATABASE'),
+            getenv('MYSQL_USER'),
+            getenv('MYSQL_PASSWORD'),
         );
 
         $this->doctrineUserRepository = new DoctrineUserRepository($this->entityManager);
@@ -43,5 +43,7 @@ class DoctrineUserRepositoryTest extends TestCase
         );
 
         $this->doctrineUserRepository->save($user);
+
+        $this->assertTrue(true);
     }
 }

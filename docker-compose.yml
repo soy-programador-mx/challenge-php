@@ -1,0 +1,29 @@
+services:
+
+  app:
+    build:
+      context: ./
+    restart: always
+    ports:
+      - 8089:80
+    depends_on:
+      - mysql
+    env_file:
+      - .env
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    ports:
+      - 3310:3306
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_RANDOM_ROOT_PASSWORD: ${MYSQL_RANDOM_ROOT_PASSWORD}
+
+volumes:
+  app:
+  db:
