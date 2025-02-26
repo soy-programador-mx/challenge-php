@@ -27,7 +27,7 @@ final class UserId
             throw new InvalidArgumentException('User id is required');
         }
 
-        // UUID v4 validation
+        // UUID format validation
         if (preg_match('/^[0-9a-f.]{23}$/', $value) !== 1) {
             throw new InvalidArgumentException('Invalid user id');
         }

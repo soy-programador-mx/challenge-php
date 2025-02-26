@@ -35,7 +35,7 @@ final class UserPassword
 
         // String format validation
         if (preg_match('/(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%])[0-9A-Za-z!@#$%]{8,}/', $value) !== 1) {
-            throw new WeakPasswordException();
+            throw new WeakPasswordException('User password must contain at least one uppercase letter, one lowercase letter, one number and one special character');
         }
     }
 

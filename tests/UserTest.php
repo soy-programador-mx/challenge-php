@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Jorgeaguero\Docfav\Tests;
+
 use PHPUnit\Framework\TestCase;
 use Jorgeaguero\Docfav\Entity\User\Domain\User;
 use Jorgeaguero\Docfav\Entity\User\Domain\ValueObjects\UserId;
