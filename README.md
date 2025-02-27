@@ -8,17 +8,6 @@ Este repositorio es una prueba técnica, se hace uso de modelado de dominio, dis
 * Docker instalado
 * Docker-compose instalado
 
-# Uso
-
-Creación de usuarios:
-
-```
-curl --location 'http://localhost:8089/' \
---form 'name="Jorge123"' \
---form 'email="jorge1@dev.local"' \
---form 'password="Mexico123\!"'
-```
-
 # Setup
 
 ## Manualmente
@@ -43,7 +32,11 @@ cd challenge-php
 cp .env.template .env
 ```
 
-Asignar valor a las variables:
+* Asignar valor a las variables:
+
+```
+vim .env
+```
 
 Variable | Descripción
 ---------|------------
@@ -62,4 +55,15 @@ docker compose up -d
 ó
 ```
 docker-compose up -d
+```
+
+# Uso
+
+Creación de usuarios:
+
+```
+curl --location 'http://localhost:8089/' \
+--form 'name="Jorge123"' \
+--form 'email="jorge1@dev.local"' \
+--form 'password="Mexico123\!"'
 ```
