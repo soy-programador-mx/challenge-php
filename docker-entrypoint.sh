@@ -7,7 +7,7 @@ set -e
 if [ "$MODE" = "dev" ]; then
 
     echo "Development mode detected. Generating database..."
-    doctrine orm:schema-tool:create --force
+    doctrine orm:schema-tool:create
 
     echo "Development mode detected. Generating database tables..."
     doctrine orm:schema-tool:update --force
