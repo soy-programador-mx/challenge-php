@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace Jorgeaguero\Docfav\Entity\User\Application\DTO;
 
+use DateTime;
+
 class UserResponseDTO
 {
     private string $id;
     private string $name;
     private string $email;
-    private string $createdAt;
+    private DateTime $createdAt;
 
-    public function __construct(string $id, string $name, string $email, string $createdAt)
+    public function __construct(string $id, string $name, string $email, DateTime $createdAt)
     {
         $this->id = $id;
         $this->name = $name;
@@ -25,7 +27,7 @@ class UserResponseDTO
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'createdAt' => $this->createdAt
+            'created_at' => $this->createdAt
         ]);
     }
 }

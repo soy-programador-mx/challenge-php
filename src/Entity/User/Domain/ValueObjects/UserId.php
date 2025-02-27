@@ -10,8 +10,9 @@ final class UserId
 {
     private string $value;
 
-    public function __construct(string $value)
+    public function __construct()
     {
+        $value = uniqid('', true);
         $this->validate($value);
         $this->value = $value;
     }

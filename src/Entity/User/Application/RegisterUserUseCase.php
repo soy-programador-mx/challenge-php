@@ -32,7 +32,7 @@ final class RegisterUserUseCase
     public function execute(RegisterUserRequestDTO $request): UserResponseDTO
     {
         $user = new User(
-            new UserId(uniqid()),
+            new UserId(),
             new UserName($request->name()),
             new UserEmail($request->email()),
             new UserPassword($request->password()),

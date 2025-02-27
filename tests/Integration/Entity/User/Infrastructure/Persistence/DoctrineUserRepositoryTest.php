@@ -17,8 +17,8 @@ use PHPUnit\Framework\TestCase;
 class DoctrineUserRepositoryTest extends TestCase
 {
     private EntityManager $entityManager;
-    private UserRepositoryInterface $userRepository;
     private DoctrineUserRepository $doctrineUserRepository;
+    private User $user;
 
     protected function setUp(): void
     {
@@ -32,17 +32,22 @@ class DoctrineUserRepositoryTest extends TestCase
         $this->doctrineUserRepository = new DoctrineUserRepository($this->entityManager);
     }
 
+    public function tearDown(): void
+    {
+        $this->doctrineUserRepository->delete($this->user->id());
+    }
+
     public function testSaveUser(): void
     {
-        $user = new User(
-            new UserId(uniqid('', true)),
+        $this->user = new User(
+            new UserId(),
             new UserName('Jorge'),
             new UserEmail('jorge@localhost.dev'),
             new UserPassword('passwordQ1!'),
             new UserCreatedAt()
         );
 
-        $this->doctrineUserRepository->save($user);
+        $this->doctrineUserRepository->save($this->user);
 
         $this->assertTrue(true);
     }

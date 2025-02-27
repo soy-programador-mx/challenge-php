@@ -7,5 +7,9 @@
     <entity name="Jorgeaguero\Docfav\Entity\User\Domain\User" table="users">
 
         <embedded name="id" class="Jorgeaguero\Docfav\Entity\User\Domain\ValueObjects\UserId" use-column-prefix="false" />
+        <embedded name="name" class="Jorgeaguero\Docfav\Entity\User\Domain\ValueObjects\UserName" use-column-prefix="false" />
+        <embedded name="email" class="Jorgeaguero\Docfav\Entity\User\Domain\ValueObjects\UserEmail" use-column-prefix="false" />
+        <embedded name="password" class="Jorgeaguero\Docfav\Entity\User\Domain\ValueObjects\UserPassword" use-column-prefix="false" />
+        <embedded name="created_at" class="Jorgeaguero\Docfav\Entity\User\Domain\ValueObjects\UserCreatedAt" use-column-prefix="false" />
     </entity>
 </doctrine-mapping>

@@ -16,7 +16,7 @@ final class UserTest extends TestCase
 {
     public function testUserEntityCanBeCreated(): void
     {
-        $id = new UserId(uniqid('', true));
+        $id = new UserId();
         $name = new UserName('Jorge');
         $email = new UserEmail('test@localhost.dev');
         $password = new UserPassword('testinG1!');

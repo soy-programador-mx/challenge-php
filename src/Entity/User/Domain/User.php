@@ -19,7 +19,7 @@ final class User
     private UserName $name;
     private UserEmail $email;
     private UserPassword $password;
-    private UserCreatedAt $createdAt;
+    private UserCreatedAt $created_at;
 
     /**
      * @param UserId $id User id
@@ -39,7 +39,7 @@ final class User
         $this->name = $name;
         $this->email = $email;
         $this->password = $password;
-        $this->createdAt = $createdAt;
+        $this->created_at = $createdAt;
     }
 
     final public function id(): UserId
@@ -59,6 +59,6 @@ final class User
 
     final public function createdAt(): UserCreatedAt
     {
-        return $this->createdAt;
+        return $this->created_at;
     }
 }
