@@ -8,7 +8,20 @@ Este repositorio es una prueba técnica, se hace uso de modelado de dominio, dis
 * Docker instalado
 * Docker-compose instalado
 
-# Setup manual
+# Uso
+
+Creación de usuarios:
+
+```
+curl --location 'http://localhost:8089/' \
+--form 'name="Jorge123"' \
+--form 'email="jorge1@dev.local"' \
+--form 'password="Mexico123\!"'
+```
+
+# Setup
+
+## Manualmente
 
 Pasos para iniciar el proyecto correctamente:
 
@@ -34,11 +47,12 @@ Asignar valor a las variables:
 
 Variable | Descripción
 ---------|------------
-MYSQL_HOST| Dirección del servidor de base de datos, este valor se asigna con el nombre del servicio en Docker
+MYSQL_HOST| Dirección del servidor de base de datos, este valor se asigna con el nombre del servicio MySQL del archivo docker-compose.yml
 MYSQL_DATABASE | Nombre de la base de datos
 MYSQL_USER | Usuario de la base de datos
 MYSQL_PASSWORD | Password de la base de datos
 MYSQL_RANDOM_ROOT_PASSWORD | Asigna una contraseña aleatoria al usuario root del servidor MySQL
+MODE | Valores posibles ```dev``` ó ```production```. En el modo "dev", ejecuta doctrine para crear las tablas automáticamente al generar el contenedor ```app``` mediante el archivo ```docker-entrypoint.sh```
 
 * Crear contenedores usando docker-compose
 
