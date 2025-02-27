@@ -59,7 +59,13 @@ docker-compose up -d
 
 # Uso
 
-Creación de usuarios:
+## Ejecutar  pruebas unitarias
+
+```
+docker compose exec app ./vendor/bin/phpunit tests
+```
+
+## Creación de usuarios:
 
 ```
 curl --location 'http://localhost:8089/' \
