@@ -6,5 +6,5 @@ namespace Jorgeaguero\Docfav\Shared\Domain\Event;
 
 interface EventHandlerInterface
 {
-    public function handle(DomainEvent $event): void;
+    public function handle(DomainEvent $event): bool;
 }

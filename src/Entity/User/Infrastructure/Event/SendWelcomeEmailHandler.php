@@ -10,13 +10,16 @@ use Jorgeaguero\Docfav\Entity\User\Domain\Event\UserRegisteredEvent;
 
 class SendWelcomeEmailHandler implements EventHandlerInterface
 {
-    public function handle(DomainEvent $event): void
+    public function handle(DomainEvent $event): bool
     {
         if ($event instanceof UserRegisteredEvent) {
             $user = $event->user();
 
             // Send welcome email to $user
-            echo "Sending welcome email to {$user->email()->value()}\n";
+            // echo "Sending welcome email to {$user->email()->value()}\n";
+            return true;
         }
+
+        return false;
     }
 }
