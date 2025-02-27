@@ -7,12 +7,7 @@ use Doctrine\ORM\Tools\Console\ConsoleRunner;
 use Doctrine\ORM\Tools\Console\EntityManagerProvider\SingleManagerProvider;
 use Jorgeaguero\Docfav\Shared\Infrastructure\DoctrineEntityManager;
 
-$entityManager = DoctrineEntityManager::getEntityManager(
-    getenv('MYSQL_HOST'),
-    getenv('MYSQL_DATABASE'),
-    getenv('MYSQL_USER'),
-    getenv('MYSQL_PASSWORD'),
-);
+$entityManager = DoctrineEntityManager::getEntityManager();
 
 $commands = [
     // If you want to add your own custom console commands,

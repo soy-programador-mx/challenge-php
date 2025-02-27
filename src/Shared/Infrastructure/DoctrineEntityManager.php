@@ -14,18 +14,10 @@ class DoctrineEntityManager
 
     /**
      * Get the EntityManager instance
-     * @param string $host Database host
-     * @param string $dbname Database name
-     * @param string $user Database user
-     * @param string $password Database password
      * @return EntityManager
      */
-    public static function getEntityManager(
-        string $host,
-        string $dbname,
-        string $user,
-        string $password
-    ): EntityManager {
+    public static function getEntityManager(): EntityManager
+    {
         if (self::$entityManager === null) {
 
             // Doctrine configuration
@@ -37,10 +29,10 @@ class DoctrineEntityManager
             // Connection configuration
             $connection = DriverManager::getConnection([
                 'driver'   => 'pdo_mysql',
-                'host'     => $host,
-                'dbname'   => $dbname,
-                'user'     => $user,
-                'password' => $password,
+                'host'     => getenv('MYSQL_HOST'),
+                'dbname'   => getenv('MYSQL_DATABASE'),
+                'user'     => getenv('MYSQL_USER'),
+                'password' => getenv('MYSQL_PASSWORD'),
             ], $config);
 
             self::$entityManager = new EntityManager($connection, $config);

@@ -22,12 +22,7 @@ class DoctrineUserRepositoryTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->entityManager = DoctrineEntityManager::getEntityManager(
-            getenv('MYSQL_HOST'),
-            getenv('MYSQL_DATABASE'),
-            getenv('MYSQL_USER'),
-            getenv('MYSQL_PASSWORD'),
-        );
+        $this->entityManager = DoctrineEntityManager::getEntityManager();
 
         $this->doctrineUserRepository = new DoctrineUserRepository($this->entityManager);
     }
