@@ -1,8 +1,13 @@
 #!/bin/bash
 
-# Run phpunit tests
-if [ "$1" = '/var/www/html/vendor/bin/phpunit' ]; then
-    php /var/www/html/vendor/bin/phpunit --colors=always tests
+# Hacer que el script falle en caso de error
+set -e
+
+# Verificar si la variable MODE está definida y si su valor es 'dev'
+if [ "$MODE" = "dev" ]; then
+    echo "Development mode detected. Generating database tables..."
+    doctrine orm:schema-tool:update --force
 fi
 
+# Ejecutar el comando que se pasó al contenedor
 exec "$@"

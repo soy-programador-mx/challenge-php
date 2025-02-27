@@ -17,8 +17,8 @@ COPY . /var/www/html
 WORKDIR /var/www/html
 
 # Copy entrypoint
-COPY ./docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 RUN rm -rf ./docker-entrypoint.sh
 
 # Copy doctrine binary
@@ -36,7 +36,7 @@ USER www-data
 RUN composer install
 
 # Set the entrypoint to our custom script
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Set the command to start Apache
 CMD ["apache2-foreground"]
