@@ -24,7 +24,7 @@ class RegisterUserUseCaseTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->eventBus = $this->createMock(EventBus::class);
+        $this->eventBus = new EventBus();
     }
 
     public function testRegisterUser(): void

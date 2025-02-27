@@ -17,6 +17,7 @@ use Jorgeaguero\Docfav\Entity\User\Domain\Exceptions\UserAlreadyExistsException;
 use Jorgeaguero\Docfav\Entity\User\Application\DTO\RegisterUserRequestDTO;
 use Jorgeaguero\Docfav\Entity\User\Application\DTO\UserResponseDTO;
 use Jorgeaguero\Docfav\Shared\Domain\Event\EventBus;
+use Jorgeaguero\Docfav\Entity\User\Infrastructure\Event\SendWelcomeEmailHandler;
 
 final class RegisterUserUseCase
 {
@@ -27,6 +28,9 @@ final class RegisterUserUseCase
     {
         $this->repository = $repository;
         $this->eventBus = $eventBus;
+
+        // Event bus subscribe
+        $this->eventBus->subscribe(UserRegisteredEvent::class, new SendWelcomeEmailHandler());
     }
 
     public function execute(RegisterUserRequestDTO $request): UserResponseDTO
