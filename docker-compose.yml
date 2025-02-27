@@ -10,6 +10,9 @@ services:
       - mysql
     env_file:
       - .env
+    #Development bind mount (comment out for production)
+    volumes:
+      - ./:/var/www/html
 
   mysql:
     image: mysql:8.0

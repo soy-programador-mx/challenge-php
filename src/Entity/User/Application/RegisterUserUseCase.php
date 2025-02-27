@@ -52,6 +52,8 @@ final class RegisterUserUseCase
         $this->eventBus->publish(new UserRegisteredEvent($user));
 
         return new UserResponseDTO(
+            true,
+            'User registered successfully',
             $user->id()->value(),
             $user->name()->value(),
             $user->email()->value(),
