@@ -40,7 +40,7 @@ cp .env.template .env
 
 # Solicitar variables al usuario
 echo -e "${GREEN}Configurando variables de entorno...${NC}"
-read -p "Ingrese la dirección del servidor MySQL (ej. mysql_service): " MYSQL_HOST
+read -p "Ingrese la dirección del servidor MySQL (ej. mysql): " MYSQL_HOST
 read -p "Ingrese el nombre de la base de datos: " MYSQL_DATABASE
 read -p "Ingrese el usuario de la base de datos: " MYSQL_USER
 read -sp "Ingrese la contraseña de la base de datos: " MYSQL_PASSWORD
