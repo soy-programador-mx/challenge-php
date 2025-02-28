@@ -10,6 +10,27 @@ Este repositorio es una prueba técnica, se hace uso de modelado de dominio, dis
 
 # Setup
 
+## setup.sh
+
+Puede levantar el proyecto haciendo uso del script ```bin/setup.sh```
+
+* Usadno wget
+```
+wget https://raw.githubusercontent.com/soy-programador-mx/challenge-php/main/bin/setup.sh -O setup.sh
+```
+
+* Usando curl
+```
+curl -o setup.sh https://raw.githubusercontent.com/soy-programador-mx/challenge-php/main/bin/setup.sh
+```
+
+* Dar permisos de ejecución y ejecutar el script
+
+```
+chmod +x setup.sh
+./setup.sh
+```
+
 ## Manualmente
 
 Pasos para iniciar el proyecto correctamente:
@@ -72,4 +93,13 @@ curl --location 'http://localhost:8089/' \
 --form 'name="Jorge123"' \
 --form 'email="jorge1@dev.local"' \
 --form 'password="Mexico123\!"'
+```
+
+## Realizar modificaciones
+
+Si desea realizar modificaciones en vivo, debe descomentar las siguientes líneas del archivo ```docker-compose.yml``` y regenerar el contenedor ```app``` con ```docker compose up -d```
+
+```
+    # volumes:
+    #   - ./:/var/www/html
 ```
